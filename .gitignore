@@ -1,0 +1,13 @@
+node_modules/
+
+# Downloaded model weights (~12 MB) — run `npm run models` to fetch them.
+models/*
+!models/.gitkeep
+
+# The database holds biometric descriptors. Never commit it.
+data/*
+!data/.gitkeep
+
+npm-debug.log*
+.DS_Store
+.env

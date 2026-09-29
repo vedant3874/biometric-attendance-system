@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in · Attendance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#151b2e',
+              midnight: '#0b1120',
+              paper: '#f1f3f9',
+              brand: {
+                50: '#eef2ff',
+                100: '#e0e7ff',
+                400: '#818cf8',
+                500: '#6366f1',
+                600: '#4f46e5',
+                700: '#4338ca',
+              },
+            },
+            boxShadow: {
+              lift: '0 1px 2px rgba(11,17,32,.04), 0 12px 32px -8px rgba(11,17,32,.14)',
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+
+  <body class="min-h-screen bg-paper text-ink antialiased">
+    <div
+      class="pointer-events-none fixed inset-x-0 top-0 h-80 bg-gradient-to-b from-brand-100/70 to-transparent"
+      aria-hidden="true"
+    ></div>
+
+    <main class="relative flex min-h-screen items-center justify-center px-5 py-12">
+      <div class="w-full max-w-sm">
+        <div class="mb-7 flex flex-col items-center text-center">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-midnight shadow-lift">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="10.5" width="16" height="10" rx="2" />
+              <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+            </svg>
+          </span>
+          <h1 class="mt-4 text-xl font-extrabold tracking-tight">Admin sign in</h1>
+          <p class="mt-1 text-sm text-slate-500">Enter your credentials to reach the dashboard.</p>
+        </div>
+
+        <form id="login-form" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-lift" novalidate>
+          <div class="space-y-4">
+            <div>
+              <label for="username" class="block text-sm font-bold">Username</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="username"
+                required
+                class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm shadow-sm outline-none transition placeholder:text-slate-400 focus:border-brand-500"
+              />
+            </div>
+            <div>
+              <label for="password" class="block text-sm font-bold">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm shadow-sm outline-none transition placeholder:text-slate-400 focus:border-brand-500"
+              />
+            </div>
+          </div>
+
+          <div id="form-error" class="mt-4" role="alert" aria-live="polite"></div>
+
+          <button
+            id="submit"
+            type="submit"
+            class="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-lift transition hover:bg-brand-700 active:scale-[.99] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+          >
+            <span id="submit-label">Sign in</span>
+          </button>
+        </form>
+
+        <p class="mt-5 text-center text-xs text-slate-400">
+          <a href="/" class="font-semibold text-slate-500 transition hover:text-brand-600">Back to the kiosk</a>
+        </p>
+      </div>
+    </main>
+
+    <script src="/js/login.js"></script>
+  </body>
+</html>
